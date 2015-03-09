@@ -25,27 +25,29 @@ shinyUI(
       sidebarPanel(
         selectInput("top", "Top", choices=c(5,10,15,20)),
         
-        radioButtons("bonus", "Station with bonus", c(TRUE, FALSE, NA), selected = NA, inline = FALSE),
+        #radioButtons("bonus", "Station with bonus", c(TRUE, FALSE, NA), selected = NA, inline = FALSE),
+        radioButtons("bike_stand","Top available", c("bike stand"=TRUE,"bike"=FALSE), selected = FALSE, inline = FALSE),
         hr(),
         helpText("Data from AT&T (1961) The World's Telephones.")
       ),
       
       # Create a spot for the barplot
       mainPanel(
+        
         #plotOutput("phonePlot")  
         h1('Results of prediction'),
         h4("Summary"),
-        conditionalPanel(
-          condition = "output.otop.value == '20'",
-          sliderInput("breakCount", "Break Count", min=1, max=1000, value=10)          
-        ),
-                
-        h4("Observations"),
-        verbatimTextOutput("otop")
-        #tableOutput("view")
+        tabsetPanel(
+          tabPanel('diamonds',
+                   h4("Observations"),
+                   dataTableOutput("mytable"),
+                  verbatimTextOutput("obike_stand")),
+          tabPanel('mtcars',
+                   h4("Observations"),
+                   #dataTableOutput("mytable"),
+                   verbatimTextOutput("otop"))          
+        )              
       )
-      
-    )#,
-    #sidebarLayout(sidebarPanel, mainPanel, position = c("left", "right"), fluid = TRUE)
+    )
   )
 )

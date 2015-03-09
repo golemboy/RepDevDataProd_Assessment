@@ -100,11 +100,11 @@ get_top_bikes <- function(dt, top, stands) {
   top_dt
 }
 
-num_row <- "100" #"1230"
-contract_name<-"Paris" 
-velib_json <-"http://opendata.paris.fr/api/records/1.0/search?dataset=stations-velib-disponibilites-en-temps-reel&rows=%s&facet=banking&facet=bonus&facet=status&facet=bike_stands&facet=available_bike_stands&facet=available_bikes&facet=last_update&facet=name&refine.contract_name=%s"
-
-dt <- get_data(velib_json)
-
-top_available_bikes <- get_top_bikes(dt, 10, FALSE)
-top_available_bike_stands <- get_top_bikes(dt, 10, TRUE)
+# num_row <- "100" #"1230"
+# contract_name<-"Paris" 
+# velib_json <-"http://opendata.paris.fr/api/records/1.0/search?dataset=stations-velib-disponibilites-en-temps-reel&rows=%s&facet=banking&facet=bonus&facet=status&facet=bike_stands&facet=available_bike_stands&facet=available_bikes&facet=last_update&facet=name&refine.contract_name=%s"
+# 
+# dt <- get_data(velib_json)
+# 
+# top_available_bikes <- get_top_bikes(dt, 10, FALSE)
+# top_available_bike_stands <- get_top_bikes(dt, 10, TRUE)
