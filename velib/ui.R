@@ -23,7 +23,8 @@ shinyUI(
       
       # Define the sidebar with one input
       sidebarPanel(
-        selectInput("top", "Top", choices=c(5,10,15,20)),
+        selectInput("top", "Top", choices=c(10,15,20)),
+        selectInput("borough", "Borough", choices=1:20),
         
         #radioButtons("bonus", "Station with bonus", c(TRUE, FALSE, NA), selected = NA, inline = FALSE),
         radioButtons("bike_stand","Top available", c("bike stand"=TRUE,"bike"=FALSE), selected = FALSE, inline = FALSE),

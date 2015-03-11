@@ -8,7 +8,7 @@ shinyServer(
     ibike_stand <- renderPrint({input$bike_stand})
     
     
-    num_row <- "100" #"1230"
+    num_row <- "1000" #"1230"
     contract_name<-"Paris" 
     velib_json <-"http://opendata.paris.fr/api/records/1.0/search?dataset=stations-velib-disponibilites-en-temps-reel&rows=%s&facet=banking&facet=bonus&facet=status&facet=bike_stands&facet=available_bike_stands&facet=available_bikes&facet=last_update&facet=name&refine.contract_name=%s"  
     
@@ -18,7 +18,7 @@ shinyServer(
     
     output$mytable = renderDataTable({
       #selectedData
-      get_top_bikes(dt, input$top, input$bike_stand)
+      get_top_bikes(dt, input$top, input$bike_stand,input$borough)
     })
     
     
